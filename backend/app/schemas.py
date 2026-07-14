@@ -21,3 +21,4 @@ class MatchResponse(BaseModel):
     skill_gap: SkillGap
     explanation: str              # human-readable justification
     latency_ms: float
+    low_confidence: bool = False  # true when JD had no detectable skills

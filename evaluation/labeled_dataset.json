@@ -202,5 +202,11 @@
     "resume_text": "Generalist software engineer with 3 years experience in Python, JavaScript, SQL, and Git across multiple full-stack projects. No dedicated containerization experience.",
     "job_description": "Backend engineer role requiring Python, SQL, REST API, and Docker experience. 2+ years experience.",
     "label": "fit"
+  },
+  {
+    "id": 35,
+    "resume_text": "AI/ML engineer experienced in Python, TensorFlow, Gemini API, LangChain, RAG, machine learning, data structures, and algorithms.",
+    "job_description": "mechanical engineer",
+    "label": "no_fit"
   }
 ]

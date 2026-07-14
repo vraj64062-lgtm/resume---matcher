@@ -80,6 +80,11 @@ export default function App() {
 
         {result && (
           <div className="results">
+            {result.low_confidence && (
+              <div className="low-confidence-banner">
+                ⚠️ Low confidence result — the job description didn't contain enough recognizable skill keywords for a reliable skills-based match.
+              </div>
+            )}
             <div className="verdict-card">
               <div className="verdict-score">{result.overall_score.toFixed(1)}%</div>
               <div className={`verdict-label verdict-${result.verdict.split(' ')[0].toLowerCase()}`}>
@@ -118,4 +123,3 @@ export default function App() {
       </main>
     </div>
   )
-}

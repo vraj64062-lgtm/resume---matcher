@@ -31,14 +31,25 @@ resume-matcher/
 
 ## Results (real, reproducible — run it yourself)
 
-Ran on the 34-sample labeled dataset in `evaluation/labeled_dataset.json` (24 clear-cut
-cases + 10 deliberately borderline cases: partial skill overlap, close-but-not-quite
-experience levels, adjacent roles):
+Ran on the 35-sample labeled dataset in `evaluation/labeled_dataset.json` (24 clear-cut
+cases + 10 deliberately borderline cases + 1 regression test for the bug described below):
 
 | Mode                          | Accuracy | Precision | Recall | F1-score | Avg latency |
 |--------------------------------|----------|-----------|--------|----------|-------------|
-| Baseline (keyword matching)   | 82.4%    | 80.0%     | 80.0%  | 80.0%    | 1.9 ms/pair |
+| Baseline (keyword matching)   | 82.9%    | 84.6%     | 73.3%  | 78.6%    | 2.1 ms/pair |
 | Gemini-enhanced (run with your API key) | — run `eval_harness.py --use-gemini` — |
+
+**Post-launch fix (real bug found via live testing):** after deploying, testing the live
+app with a deliberately mismatched pair (an AI/ML resume against a one-line, unrelated
+JD like "mechanical engineer") revealed the scorer returned a false 70% "Moderate Fit."
+Root cause: when a JD has no skills the vocabulary can detect, `_skills_score` defaulted
+to a perfect 100% on the assumption that "no detected requirements" meant "nothing to
+fail" — this silently broke on short or non-technical JDs. Fixed by falling back to the
+semantic similarity signal (which correctly showed ~8% similarity) instead, and flagging
+the result as `low_confidence` so the UI is honest about when a score is less reliable.
+The same test case now correctly returns ~26%, "Weak Fit." This is a good example of a
+gap that only shows up under live, adversarial testing rather than a curated eval set —
+worth mentioning in an interview alongside the eval methodology story.
 
 **Methodology note (worth mentioning in an interview):** the dataset was initially
 24 cases that were all clean wins or clean losses (near-total skill overlap for
