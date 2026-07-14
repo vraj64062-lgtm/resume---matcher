@@ -1,0 +1,206 @@
+[
+  {
+    "id": 1,
+    "resume_text": "Software engineer with 3 years experience building REST APIs in Python and FastAPI. Strong in PostgreSQL, Docker, and AWS. Led migration to microservices reducing latency by 30%.",
+    "job_description": "Looking for a backend engineer with 2+ years experience in Python, FastAPI, PostgreSQL, and AWS. Experience with microservices architecture required.",
+    "label": "fit"
+  },
+  {
+    "id": 2,
+    "resume_text": "Frontend developer skilled in React, TypeScript, Tailwind CSS. Built and shipped 4 production web apps. No backend experience.",
+    "job_description": "Senior backend engineer needed with deep expertise in Java, Spring Boot, Kafka, and distributed systems. 5+ years experience required.",
+    "label": "no_fit"
+  },
+  {
+    "id": 3,
+    "resume_text": "ML engineer with 2 years experience. Proficient in PyTorch, TensorFlow, and scikit-learn. Built and deployed computer vision models improving detection accuracy by 15%.",
+    "job_description": "Machine learning engineer role requiring PyTorch, computer vision experience, and model deployment skills. 1-3 years experience.",
+    "label": "fit"
+  },
+  {
+    "id": 4,
+    "resume_text": "Marketing analyst with experience in SQL and Excel dashboards. No programming or ML background.",
+    "job_description": "Data scientist role requiring Python, machine learning, and statistical modeling experience. 3+ years required.",
+    "label": "no_fit"
+  },
+  {
+    "id": 5,
+    "resume_text": "Full-stack developer with Node.js, Express, MongoDB, React experience. Built e-commerce platform handling 10k daily users.",
+    "job_description": "Full-stack engineer needed with Node.js, React, and MongoDB experience. Startup environment, 1+ years experience.",
+    "label": "fit"
+  },
+  {
+    "id": 6,
+    "resume_text": "DevOps engineer with Kubernetes, Docker, CI/CD pipeline experience. Reduced deployment time by 40% using GitHub Actions.",
+    "job_description": "iOS developer needed with Swift, SwiftUI, and Xcode experience. 2+ years mobile development required.",
+    "label": "no_fit"
+  },
+  {
+    "id": 7,
+    "resume_text": "Data engineer with Spark, Airflow, and Kafka experience. Built data pipelines processing 5TB daily, improving processing speed by 25%.",
+    "job_description": "Data engineering role requiring Spark, Airflow, and pipeline optimization experience. 2+ years required.",
+    "label": "fit"
+  },
+  {
+    "id": 8,
+    "resume_text": "Graphic designer with Adobe Photoshop, Illustrator, and Figma experience. Created branding for 15+ clients.",
+    "job_description": "Backend engineer role requiring Python, Django, and PostgreSQL experience. 2+ years required.",
+    "label": "no_fit"
+  },
+  {
+    "id": 9,
+    "resume_text": "NLP researcher with experience in transformers, HuggingFace, and LLM fine-tuning. Published paper improving text classification F1-score by 12%.",
+    "job_description": "NLP engineer needed with transformers, HuggingFace experience, and LLM fine-tuning skills.",
+    "label": "fit"
+  },
+  {
+    "id": 10,
+    "resume_text": "Sales executive with 5 years experience in B2B SaaS sales. No technical background.",
+    "job_description": "Machine learning engineer role requiring Python, TensorFlow, and model deployment experience.",
+    "label": "no_fit"
+  },
+  {
+    "id": 11,
+    "resume_text": "Cloud engineer with AWS, GCP, and Terraform experience. Reduced infrastructure costs by 20% through resource optimization.",
+    "job_description": "Cloud infrastructure engineer role requiring AWS and Terraform experience. 2+ years required.",
+    "label": "fit"
+  },
+  {
+    "id": 12,
+    "resume_text": "Content writer with SEO and copywriting experience. Wrote 200+ articles for tech blogs.",
+    "job_description": "Frontend engineer role requiring React, JavaScript, and CSS experience.",
+    "label": "no_fit"
+  },
+  {
+    "id": 13,
+    "resume_text": "Junior software developer with internship experience in Python, Flask, and MySQL. Built a task management app as capstone project.",
+    "job_description": "Entry-level backend developer role requiring Python and SQL experience. Fresh graduates welcome.",
+    "label": "fit"
+  },
+  {
+    "id": 14,
+    "resume_text": "Mechanical engineer with CAD and SolidWorks experience. No software development background.",
+    "job_description": "Software engineer role requiring Java, Spring Boot, and REST API experience.",
+    "label": "no_fit"
+  },
+  {
+    "id": 15,
+    "resume_text": "Computer vision engineer with 4 years experience in OpenCV, PyTorch, and object detection. Improved model accuracy by 18% on production dataset.",
+    "job_description": "Computer vision role requiring OpenCV, PyTorch, and object detection experience. 3+ years required.",
+    "label": "fit"
+  },
+  {
+    "id": 16,
+    "resume_text": "HR generalist with recruitment and onboarding experience. No technical skills listed.",
+    "job_description": "DevOps engineer role requiring Docker, Kubernetes, and CI/CD pipeline experience.",
+    "label": "no_fit"
+  },
+  {
+    "id": 17,
+    "resume_text": "Data analyst with SQL, Python, and Tableau experience. Built dashboards improving reporting efficiency by 35%.",
+    "job_description": "Data analyst role requiring SQL, Python, and data visualization experience. 1+ years required.",
+    "label": "fit"
+  },
+  {
+    "id": 18,
+    "resume_text": "Product manager with 6 years experience in roadmap planning and stakeholder management. No coding experience.",
+    "job_description": "Machine learning engineer role requiring Python, scikit-learn, and model deployment experience.",
+    "label": "no_fit"
+  },
+  {
+    "id": 19,
+    "resume_text": "Generative AI engineer with experience in LangChain, RAG pipelines, and prompt engineering using Gemini API and OpenAI API. Built chatbot reducing support ticket volume by 22%.",
+    "job_description": "Generative AI engineer role requiring LangChain, RAG, and prompt engineering experience with LLM APIs.",
+    "label": "fit"
+  },
+  {
+    "id": 20,
+    "resume_text": "Civil engineer with structural analysis and AutoCAD experience. No AI/ML background.",
+    "job_description": "NLP engineer role requiring transformers, HuggingFace, and text classification experience.",
+    "label": "no_fit"
+  },
+  {
+    "id": 21,
+    "resume_text": "Backend developer skilled in Go, gRPC, and PostgreSQL. Built high-throughput services handling 50k requests/sec.",
+    "job_description": "Backend engineer role requiring Go and distributed systems experience. 2+ years required.",
+    "label": "fit"
+  },
+  {
+    "id": 22,
+    "resume_text": "Elementary school teacher with 8 years classroom experience. No technical background.",
+    "job_description": "Full-stack engineer role requiring React, Node.js, and MongoDB experience.",
+    "label": "no_fit"
+  },
+  {
+    "id": 23,
+    "resume_text": "Security engineer with experience in penetration testing, network security, and threat intelligence. Reduced vulnerability count by 45% through security audits.",
+    "job_description": "Cybersecurity engineer role requiring penetration testing and network security experience.",
+    "label": "fit"
+  },
+  {
+    "id": 24,
+    "resume_text": "Fashion designer with pattern-making and textile experience. No technical or engineering background.",
+    "job_description": "Data engineer role requiring Spark, Airflow, and Kafka experience.",
+    "label": "no_fit"
+  },
+  {
+    "id": 25,
+    "resume_text": "Frontend developer with 1.5 years experience in React and JavaScript. Built two personal full-stack side projects using Node.js and MongoDB, though no professional backend role.",
+    "job_description": "Full-stack developer role requiring React, Node.js, and MongoDB experience. 1+ years experience.",
+    "label": "fit"
+  },
+  {
+    "id": 26,
+    "resume_text": "Data analyst with 2 years experience in SQL, Python, Tableau, and Excel dashboards. No pipeline orchestration or big-data tooling experience.",
+    "job_description": "Junior data engineer role requiring Python, SQL, Airflow, and Spark. ETL pipeline experience preferred. 1+ years experience.",
+    "label": "no_fit"
+  },
+  {
+    "id": 27,
+    "resume_text": "ML practitioner with 1.5 years experience using PyTorch and scikit-learn on academic projects. No production deployment or computer vision experience.",
+    "job_description": "Machine learning engineer role requiring 2+ years experience with PyTorch, TensorFlow, and computer vision, including production model deployment.",
+    "label": "no_fit"
+  },
+  {
+    "id": 28,
+    "resume_text": "Backend developer with 2 years experience in Python, Django, and PostgreSQL. No caching or container orchestration experience.",
+    "job_description": "Senior backend engineer role requiring 3+ years experience with Python, Django, Redis, and Kubernetes.",
+    "label": "no_fit"
+  },
+  {
+    "id": 29,
+    "resume_text": "DevOps engineer with 1 year experience in Docker, CI/CD pipelines, and AWS. Familiar with basic infrastructure automation but no Terraform experience.",
+    "job_description": "DevOps engineer role requiring Docker, Kubernetes, AWS, and Terraform experience. 1+ years experience.",
+    "label": "fit"
+  },
+  {
+    "id": 30,
+    "resume_text": "Full-stack developer with 2 years experience in Node.js, React, and MySQL. No GraphQL or microservices architecture experience.",
+    "job_description": "Backend-focused engineer role requiring Node.js, PostgreSQL, GraphQL, and microservices experience. 2+ years experience.",
+    "label": "no_fit"
+  },
+  {
+    "id": 31,
+    "resume_text": "Software engineer with 1 year professional experience in Python and Git. Completed university coursework in penetration testing but no professional security role experience.",
+    "job_description": "Junior security engineer role requiring hands-on penetration testing, network security, and Python experience. 1+ years experience.",
+    "label": "no_fit"
+  },
+  {
+    "id": 32,
+    "resume_text": "Data scientist with 2 years experience in pandas, numpy, scikit-learn, and SQL. No pipeline orchestration or distributed data processing experience.",
+    "job_description": "Data engineer role requiring Python, SQL, Spark, and Airflow experience. 2+ years experience.",
+    "label": "no_fit"
+  },
+  {
+    "id": 33,
+    "resume_text": "Junior cloud engineer with 1 year experience in AWS, Docker, and Git. No Kubernetes or infrastructure-as-code experience.",
+    "job_description": "Cloud engineer role requiring AWS, Docker, Kubernetes, and Terraform experience. 1+ years experience.",
+    "label": "no_fit"
+  },
+  {
+    "id": 34,
+    "resume_text": "Generalist software engineer with 3 years experience in Python, JavaScript, SQL, and Git across multiple full-stack projects. No dedicated containerization experience.",
+    "job_description": "Backend engineer role requiring Python, SQL, REST API, and Docker experience. 2+ years experience.",
+    "label": "fit"
+  }
+]

@@ -1,0 +1,17 @@
+node_modules/
+venv/
+env/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+dist/
+build/
+.env
+.env.local
+.DS_Store
+.vscode/
+.idea/
+*.log
