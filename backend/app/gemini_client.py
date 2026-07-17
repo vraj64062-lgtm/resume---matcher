@@ -38,7 +38,7 @@ def _get_model():
             "and set it as an environment variable before running."
         )
     genai.configure(api_key=GEMINI_API_KEY)
-    return genai.GenerativeModel("gemini-2.0-flash")
+    return genai.GenerativeModel("gemini-flash-latest")
 
 
 def extract_structured(text: str) -> dict:
