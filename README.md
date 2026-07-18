@@ -65,7 +65,48 @@ a good next step documented in "Known limitations" below.
 **Resume-ready framing options:**
 - *"Built an explainable resume-matching engine, evaluated against a 34-case labeled dataset including adversarial/borderline examples, achieving 82.4% accuracy and 80% F1-score."*
 - *"Designed a weighted scoring system combining LLM-based extraction with skill/experience/semantic signals; diagnosed and documented a false-positive bias toward partial skill matches through threshold sensitivity analysis."*
+- *"Found and fixed two production bugs through live manual testing after deployment: a deprecated LLM model name causing silent zero-signal failures, and a skill-matching design flaw where synonymous terms (e.g. 'Amazon Web Services' vs 'AWS') failed to match due to naive exact-string comparison — fixed via canonicalized extraction plus a synonym-normalization safety net."*
 - Once you run the Gemini-enhanced eval with your own API key, you can add a comparative line like: *"Improved match accuracy from X% (keyword baseline) to Y% using LLM-based structured extraction."*
+
+## 🐛 Bug #1: deprecated Gemini model name (silent failure)
+
+After deployment, live testing with a resume/JD pair that had no keyword-matchable technical
+skills produced a suspicious flat 0% result with no errors anywhere. Root cause: the hardcoded
+model name (`gemini-2.0-flash`) had been retired by Google, and the API call was failing with a
+404 that the code's own error handling caught silently, returning an empty response instead of
+surfacing the failure. This meant the app appeared to work (no crash, no visible error) while
+actually never successfully calling Gemini at all.
+
+**Fix:** switched to `gemini-flash-latest`, Google's auto-updating model alias, so the app
+always targets the current generally-available Flash model instead of a version string that
+will eventually be retired. The exact same bug, with the exact same root cause, was found
+independently in a separate project (an AI code review assistant) built around the same time —
+worth mentioning together as a pattern, not a one-off.
+
+## 🐛 Bug #2: skill-name synonym mismatch (design flaw, not just a config issue)
+
+Testing with a resume that said *"Amazon Web Services"* against a job description that said
+*"AWS"* — the same qualification, phrased two different ways — produced a 33.3% skills-match
+score with `aws` incorrectly listed as missing. Root cause: the scorer compared extracted skill
+lists via exact lowercased-string matching. Even though Gemini's extraction step correctly
+identified the underlying skill, "amazon web services" and "aws" are never equal as strings, so
+the LLM's understanding was being discarded at the scoring layer — a real design flaw, not just
+an outdated config value like Bug #1.
+
+**Fix, two layers:**
+1. Updated the extraction prompt to explicitly instruct Gemini to output canonical, standardized
+   skill names ("aws" not "Amazon Web Services") rather than verbatim phrasing from the source
+   text.
+2. Added a synonym-normalization safety net in `scorer.py` (`SKILL_ALIASES`) that catches common
+   variants even if extraction doesn't perfectly canonicalize every time.
+
+**Verified after fix:** the same test case rose from 33.3% → 66.7% skills match, with `aws`
+correctly matched. One skill (`mongodb`) still shows as missing in that specific test — this is
+*correct*, not a remaining bug: the resume said "NoSQL data stores," a generic category that
+includes MongoDB, Cassandra, DynamoDB, and others. Gemini correctly declined to assume it
+specifically meant MongoDB rather than over-inferring, which is the right behavior even though it
+costs a point on that one test case. Worth mentioning in an interview as evidence of understanding
+precision/recall tradeoffs, not just "make the number go up."
 
 ## Known limitations
 - The scorer's skill-overlap component treats all missing skills equally, so
@@ -76,6 +117,11 @@ a good next step documented in "Known limitations" below.
 - Semantic similarity (TF-IDF) is a weak signal on short texts — it works
   better as a tiebreaker than a primary signal, which is why it's only
   weighted 30%.
+- The `SKILL_ALIASES` synonym map in `scorer.py` is manually curated and
+  necessarily incomplete — it covers common cases found through testing, not
+  every possible synonym. The extraction-prompt fix (canonicalizing at the
+  source) is the more scalable long-term solution; the alias map is a
+  safety net, not a complete fix.
 
 ## Setup
 
