@@ -20,6 +20,42 @@ EXPERIENCE_WEIGHT = 0.2
 SEMANTIC_WEIGHT = 0.3
 
 
+# Safety net: normalizes common skill-name variants to a canonical form before matching.
+# The Gemini extraction prompt already asks for canonical names directly (the primary fix),
+# but this catches cases where extraction doesn't perfectly canonicalize, or where the
+# baseline (non-Gemini) extractor picks up a variant phrasing.
+SKILL_ALIASES = {
+    "amazon web services": "aws",
+    "aws infrastructure": "aws",
+    "google cloud platform": "gcp",
+    "google cloud": "gcp",
+    "microsoft azure": "azure",
+    "nosql data store": "mongodb",
+    "nosql database": "mongodb",
+    "mongo": "mongodb",
+    "mongo database": "mongodb",
+    "k8s": "kubernetes",
+    "container orchestration": "kubernetes",
+    "postgres": "postgresql",
+    "node": "node.js",
+    "nodejs": "node.js",
+    "js": "javascript",
+    "ts": "typescript",
+    "ml": "machine learning",
+    "ai": "artificial intelligence",
+    "rest apis": "rest api",
+    "restful api": "rest api",
+    "restful apis": "rest api",
+    "ci/cd pipelines": "ci/cd",
+    "continuous integration": "ci/cd",
+}
+
+
+def _normalize_skill(skill: str) -> str:
+    s = skill.lower().strip()
+    return SKILL_ALIASES.get(s, s)
+
+
 def _skills_score(resume_skills, jd_skills, semantic_score: float) -> tuple[float, list, list, bool]:
     """
     Returns (score, matched, missing, low_confidence).
@@ -34,8 +70,8 @@ def _skills_score(resume_skills, jd_skills, semantic_score: float) -> tuple[floa
     and flag the result as low_confidence so the caller can be transparent
     about it.
     """
-    resume_set = set(s.lower() for s in resume_skills)
-    jd_set = set(s.lower() for s in jd_skills)
+    resume_set = set(_normalize_skill(s) for s in resume_skills)
+    jd_set = set(_normalize_skill(s) for s in jd_skills)
 
     if not jd_set:
         return semantic_score, list(resume_set), [], True
